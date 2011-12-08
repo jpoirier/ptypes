@@ -1,0 +1,28 @@
+#
+# Makefile for MacOS X (Darwin), called from ../Makefile
+#
+
+CXX = c++
+
+DOARCH= i386
+#DOARCH= x86_64
+
+ifeq ($(shell uname -s),Darwin) 
+#JDP removed (Aug 31, 2009) for OSX 10.6 build: -Wno-long-double -fno-common
+OS_CXXOPTS_ST = -Wall -arch $(DOARCH)
+else 
+OS_CXXOPTS_ST = -Wall -Wno-long-double -fno-common -arch $(DOARCH)
+endif 
+
+OS_CXXOPTS = $(OS_CXXOPTS_ST) -fPIC -arch $(DOARCH)
+
+LIBTOOL = $(CXX) -dynamiclib -arch $(DOARCH)
+SOSTRIP = test
+
+SOEXT = dylib
+SOINSTOPT = -install_name /usr/lib/$(SOREALNAME)
+
+PREFIX = /usr
+
+include Makefile.common
+

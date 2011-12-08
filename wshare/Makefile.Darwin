@@ -1,0 +1,10 @@
+#
+# Makefile for MacOS X (Darwin), called from ../Makefile
+#
+
+CXX = c++
+
+OS_CXXOPTS = -Wall
+
+include Makefile.common
+

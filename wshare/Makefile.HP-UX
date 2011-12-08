@@ -1,0 +1,11 @@
+#
+# Makefile for HP-UX, called from ../Makefile
+#
+
+CXX = aCC
+
+OS_CXXOPTS = -z -ext -mt +z -D_HPUX_SOURCE -D_FILE_OFFSET_BITS=64
+OS_LDLIBS = -lrt
+
+include Makefile.common
+

@@ -1,0 +1,21 @@
+#
+# Makefile for FreeBSD, called from ../Makefile
+#
+
+CXX = g++
+
+OS_CXXOPTS_ST = -Wall
+OS_CXXOPTS = $(OS_CXXOPTS_ST) -pthread -fPIC
+
+# OS_LDLIBS = -lc_r
+
+LIBTOOL = $(CXX) -shared -pthread
+SOSTRIP = strip
+
+SOEXT = so
+SOINSTOPT = -h $(SOREALNAME)
+
+PREFIX = /usr/local
+
+include Makefile.common
+

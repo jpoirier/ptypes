@@ -1,0 +1,11 @@
+#
+# Makefile for FreeBSD, called from ../Makefile
+#
+
+CXX = g++
+
+OS_CXXOPTS = -Wall -pthread
+# OS_LDLIBS = -lc_r
+
+include Makefile.common
+

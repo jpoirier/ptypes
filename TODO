@@ -1,0 +1,37 @@
+
+* try_wait() for sync objects, or maybe only for mutexes
+  (may be included in the minor release if affects only
+  fully-inlined objects, e.g. mutex)
+
+* linux binary rpm package
+
+* make seek() methods truly polymorphic (currently broken in memory
+  streams) in the next major release (?)
+
+* there is a problem with reusability of fdxstm objects (and
+  derivatives, g.e. ipstream): the active status of input and output
+  streams is not always in sync
+
+* make pnull a full duplex stream (?)
+
+* wshare: use jobqueue and a thread pool for better performance. not
+  sure yet what to do with crashed threads, or even how to detect that
+  one of the threads crashed (?)
+
+* wshare as a WinNT service (?)
+
+* describe alength(), aput(), aget() and akey() in the documentation, or
+  at least only alength() and aget()
+
+* add case-insensitive versions of contains() functions (maybe in the
+  pstringx add-on?)
+
+* unicode dynamic strings, wstring class (?)
+  
+* add-on: SSL filter streams
+
+* add-on: zlib filter streams
+
+* wshare: support virtual hosts and possibly some configuration options
+  in '.htconf'; (this may be a separate branch of wshare, to keep the
+  library demo simple) (?)

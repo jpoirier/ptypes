@@ -1,0 +1,32 @@
+
+CRIT_FIRST + ...
+
+1   delnotification() failed
+5   not enough memory
+11  buffer required
+12  cannot change bufsize while stream is active
+13  (ptypes internal) invalid buffer allocation
+14  putback() failed
+20  string index out of bounds
+21  string overflow
+30  list index out of bounds
+32  operation not allowed on sorted string lists
+33  can not search on unsorted string lists
+34  duplicate item in a sorted no-dup string list
+35  incompatible podlist
+36  list capacity can't be smaller than count
+37  podlist item size too big
+38  pure virtual method called for ptrlist
+40  CreateThread() failed
+41  semaphore/trigger/rwlock failed
+42  invalid message object
+43  message queue can only be read or destroyed from the creator thread
+44  message queue semaphore failed
+45  ownership of the message queue already taken
+46  attempt to free a working thread
+47  can not waitfor() on myself
+48  can not waitfor() on an autofree thread
+50  WinSock initialization failure
+51  WinSock version mismatch (2.0 compatible required)
+52  No addresses to bind
+60  Unit already running

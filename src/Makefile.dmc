@@ -1,0 +1,105 @@
+#
+# Makefile for Win32 DMC, called from ../Makefile
+#
+
+CXX = ../../dm/bin/dmc
+
+#-DPTYPES
+OS_CXXOPTS = -DWIN32 -D_DEBUG -D_WINDOWS -D_LIB -Ae -cpp -D_MT
+
+AR          = ../../dm/bin/lib -c -p512 
+RM          = del
+
+DDEBUG      = -DDEBUG -g
+INCDIR      = ../include
+
+CXXOPTS     = $(OS_CXXOPTS) $(DDEBUG) -I$(INCDIR)
+LDLIBS      = $(OS_LDLIBS)
+
+LIBNAME     = dmc_ptypes.lib
+
+HLEVEL1		= -I$(INCDIR)/pport.h
+
+HLEVEL2		= $(HLEVEL1) -I$(INCDIR)/ptypes.h -I$(INCDIR)/pasync.h -I$(INCDIR)/ptime.h
+
+HLEVEL3		= $(HLEVEL2) -I$(INCDIR)/pstreams.h
+
+HLEVEL4		= $(HLEVEL3) -I$(INCDIR)/pinet.h
+
+HALL		= $(HLEVEL4)
+
+
+LIBOBJS = pversion.obj pmem.obj pfatal.obj pstring.obj pcset.obj pcsetdbg.obj \
+		pstrmanip.obj pstrutils.obj pstrconv.obj pstrtoi.obj pstrcase.obj ptime.obj \
+		punknown.obj pcomponent.obj pexcept.obj ppodlist.obj pobjlist.obj pstrlist.obj ptextmap.obj \
+		patomic.obj pasync.obj psemaphore.obj pthread.obj pmsgq.obj ptimedsem.obj \
+		prwlock.obj ptrigger.obj pmtxtable.obj pvariant.obj \
+		piobase.obj pinstm.obj pinfile.obj ppipe.obj pinmem.obj poutmem.obj \
+		pintee.obj poutstm.obj poutfile.obj pinfilter.obj poutfilter.obj pmd5.obj \
+		pputf.obj pstdio.obj pfdxstm.obj pnpipe.obj pnpserver.obj \
+		pipbase.obj pipsvbase.obj pipstm.obj pipstmsv.obj pipmsg.obj pipmsgsv.obj \
+		punit.obj \
+		$(EXTRA_OBJS)
+		
+
+all:
+
+	$(CXX) -c $(CXXOPTS) $(HLEVEL1) pversion.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL1) pmem.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL1) pfatal.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pstring.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pcset.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pcsetdbg.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pstrmanip.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pstrutils.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pstrconv.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pstrtoi.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pstrcase.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) ptime.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) punknown.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pcomponent.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pexcept.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) ppodlist.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pobjlist.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pstrlist.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) ptextmap.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) patomic.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pasync.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) psemaphore.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pthread.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pmsgq.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) ptimedsem.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) prwlock.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) ptrigger.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pmtxtable.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL2) pvariant.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) piobase.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pinstm.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pinfile.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) ppipe.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pintee.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pinmem.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) poutmem.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) poutstm.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) poutfile.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pinfilter.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) poutfilter.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pmd5.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pputf.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pstdio.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pfdxstm.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pnpipe.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL3) pnpserver.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) pipbase.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) pipsvbase.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) pipstm.cxx
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) pipstmsv.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) pipmsg.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) pipmsgsv.cxx 
+	$(CXX) -c $(CXXOPTS) $(HLEVEL4) punit.cxx 
+	
+	$(AR) $(LIBNAME) $(LIBOBJS) 
+	
+	$(RM) *.obj
+
+
