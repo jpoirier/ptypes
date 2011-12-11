@@ -8,7 +8,7 @@ UMAKEFILE=Makefile.`uname`
 
 all:
 	cd src ; make -f $(UMAKEFILE) all
-	cd wshare ; make -f $(UMAKEFILE) all
+#	cd wshare ; make -f $(UMAKEFILE) all
 
 clean:
 	cd src ; make -f $(UMAKEFILE) clean
