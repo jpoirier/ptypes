@@ -1,4 +1,6 @@
 .DS_Store
 *.a
 *.o
+*.lib
+*.obj
 

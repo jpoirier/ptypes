@@ -189,8 +189,10 @@ int ptdecl usockerrno()
     return WSAGetLastError();
 
 // XXX: temp ugly windows hack
-	#define EPFNOSUPPORT 10046L
-	#define EHOSTDOWN 10064L
+	#ifndef  __MINGW32__
+		#define EPFNOSUPPORT 10046L
+		#define EHOSTDOWN 10064L
+	#endif
 #else
     return errno;
 #endif
