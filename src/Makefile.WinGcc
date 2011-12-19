@@ -5,12 +5,13 @@
 CXX = g++
 AR =  ar rc
 
-#-DPTYPES
-OS_CXXOPTS = -m32 -Wall -DWIN32 -D_DEBUG -D_WINDOWS -D_LIB
+#-DPTYPES -D_DEBUG
+OS_CXXOPTS = -m32 -Wall -DWIN32 -D_WINDOWS -D_LIB
 
 RM          = rm
 
-DDEBUG      = -DDEBUG -g
+#
+DDEBUG      = -DNDEBUG
 INCDIR      = ../include
 
 CXXOPTS     = $(OS_CXXOPTS) $(DDEBUG) -I$(INCDIR)
